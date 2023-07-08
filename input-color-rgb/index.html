@@ -47,17 +47,17 @@
         <div class="contenedor-interno">
             <p>Elige el color de fondo</p>
             <div class="color">
-                <label for="rojo">Rojo (R)</label>
+                <label id="textRojo" for="rojo">Rojo (R)</label>
                 <input id="rojo" type="range" min="0" max="255" value="23">
                 <p id="texto-rojo"></p>
             </div>
             <div class="color">
-                <label for="verde">Verde (G)</label>
+                <label id="textVerde" for="verde">Verde (G)</label>
                 <input id="verde" type="range" min="0" max="255" value="41">
                 <p id="texto-verde"></p>
             </div>
             <div class="color">
-                <label for="azul">Azul (B)</label>
+                <label id="textAzul" for="azul">Azul (B)</label>
                 <input id="azul" type="range" min="0" max="255" value="56">
                 <p id="texto-azul"></p>
             </div>
@@ -69,11 +69,20 @@
         const verde = document.getElementById('verde')
         const azul = document.getElementById('azul')
         const fondo = document.body;
+        const textRojo = document.getElementById('textRojo');
+        const textVerde = document.getElementById('textVerde');
+        const textAzul = document.getElementById('textAzul');
         
         function valoresRGB(){
+            // almacenar los valores a variables
             let valorRojo = rojo.value;
             let valorVerde = verde.value;
             let valorAzul = azul.value;
+            // mostrar valor en tiempo real
+            textRojo.textContent = valorRojo;
+            textVerde.textContent = valorVerde;
+            textAzul.textContent = valorAzul;
+            // devolver el estilo css con las variables
             return fondo.style.background = 'rgb('+valorRojo+','+ valorVerde+','+ valorAzul+')';
         }
         addEventListener('input', valoresRGB)
