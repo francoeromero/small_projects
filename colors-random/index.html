@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colors random</title>
+    <link rel="icon" href="./img/logo.png">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            background-color: #4c802b;
+            text-align: center;
+        }
+
+        .centrar-flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #contenedor{
+            height: 220px;
+            width: 450px;
+            background-color: white;
+            border: 5px solid black;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        #color{
+            font-size: 70px;
+            font-weight: bold;
+        }
+        button{
+            font-size: 30px;
+            color: white;
+            background-color: #008CBA;
+            margin: 15px;
+            padding: 10px 30px;
+            border: 3px sold #008CBA;
+            user-select: none;
+            transition-duration: 0.4s;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #0b4558;
+        }
+    </style>
+</head>
+<body class="centrar-flex fondo">
+    <div id="contenedor" class="centrar-flex">
+        <p id="color">#2B807B</p>
+        <button id="boton-color">Cambiar Color</button>
+    </div>
+    <script>
+        const boton = document.getElementById('boton-color');
+        const hexadecimal = document.getElementById('color');
+        const fondo = document.querySelector('.fondo')
+
+        function cambioColor(){
+
+            colorRandom = Math.round(Math.random()*10);
+            switch (colorRandom) {
+                case 1:
+                    colorRandom = '#FF6347';
+                    hexadecimal.textContent = '#FF6347'
+                break;
+                case 2:
+                    colorRandom = '#00FFFF';
+                    hexadecimal.textContent = '#00FFFF';
+                break;
+                case 3:
+                    colorRandom = '#800080';
+                    hexadecimal.textContent = '#800080';
+                break;
+                case 4:
+                    colorRandom = '#FFFF00';
+                    hexadecimal.textContent = '#FFFF00';
+                break;
+                case 5:
+                    colorRandom = '#008000';
+                    hexadecimal.textContent = '#008000';
+                break;
+                case 6:
+                    colorRandom = '#FF00FF';
+                    hexadecimal.textContent = '#FF00FF';
+                break;
+                case 7:
+                    colorRandom = '#0000FF';
+                    hexadecimal.textContent = '#0000FF';
+                break;
+                case 8:
+                    colorRandom = '#FFA500';
+                    hexadecimal.textContent = '#FFA500';
+                break;
+                case 9:
+                    colorRandom = '#FF69B4';
+                    hexadecimal.textContent = '#FF69B4';
+                break;
+                default:
+                    colorRandom = '#800000'
+                    hexadecimal.textContent = '#800000'
+                break;
+            }
+            fondo.style.background = colorRandom;
+            console.log(colorRandom)
+        }
+        boton.addEventListener('click', cambioColor);
+       
+    </script>
+</body>
+</html>
