@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>input color rgb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <style>
         *{
             margin: 0;
             padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
         }
         body{
             height: 100vh;
@@ -20,11 +24,17 @@
         .contenedor-interno{
             width: 300px;
             height: 500px;
-            background-color: wheat;
+            background-color: #fec84e;
+            background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 65%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            border-radius: 20px;
+            box-shadow: 12px 12px 12px black;
+        }
+        p{
+            font-weight: bold;
         }
         .color {
             display: flex;
@@ -35,6 +45,7 @@
 <body>
     <div class="contenedor-principal">
         <div class="contenedor-interno">
+            <p>Elige el color de fondo</p>
             <div class="color">
                 <label for="rojo">Rojo (R)</label>
                 <input id="rojo" type="range" min="0" max="255" value="23">
@@ -53,11 +64,11 @@
         </div>
     </div>
     <script>
+        // elementos DOM
         const rojo = document.getElementById('rojo')
         const verde = document.getElementById('verde')
         const azul = document.getElementById('azul')
         const fondo = document.body;
-        
         
         function valoresRGB(){
             let valorRojo = rojo.value;
@@ -66,7 +77,7 @@
             return fondo.style.background = 'rgb('+valorRojo+','+ valorVerde+','+ valorAzul+')';
         }
         addEventListener('input', valoresRGB)
-        
+
     </script>
 </body>
 </html>
