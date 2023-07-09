@@ -7,40 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto Condensed', sans-serif;
-        }
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: rgb(23, 41, 56);
-        }
-        .contenedor-interno{
-            width: 300px;
-            height: 500px;
-            background-color: #fec84e;
-            background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 65%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            box-shadow: 12px 12px 12px black;
-        }
-        p{
-            font-weight: bold;
-        }
-        .color {
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div class="contenedor-principal">
@@ -63,30 +30,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // elementos DOM
-        const rojo = document.getElementById('rojo')
-        const verde = document.getElementById('verde')
-        const azul = document.getElementById('azul')
-        const fondo = document.body;
-        const textRojo = document.getElementById('textRojo');
-        const textVerde = document.getElementById('textVerde');
-        const textAzul = document.getElementById('textAzul');
-        
-        function valoresRGB(){
-            // almacenar los valores a variables
-            let valorRojo = rojo.value;
-            let valorVerde = verde.value;
-            let valorAzul = azul.value;
-            // mostrar valor en tiempo real
-            textRojo.textContent = valorRojo;
-            textVerde.textContent = valorVerde;
-            textAzul.textContent = valorAzul;
-            // devolver el estilo css con las variables
-            return fondo.style.background = 'rgb('+valorRojo+','+ valorVerde+','+ valorAzul+')';
-        }
-        addEventListener('input', valoresRGB)
-
-    </script>
+    <script src="./main.js"></script>
 </body>
 </html>
