@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0;
+            background: url(./img/back.jpg) no-repeat center center/cover;
+        }
+        .contenedor{
+            width: 700px;
+            min-height: 500px;
+            background-color: rgb(73, 54, 141);
+            padding: 40px;
+            border: 5px solid black;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-size: 50px;
+            font-weight: bold;
+        }
+        input{
+            width: 80%;
+            height: 50px;
+            font-size: 25px;
+            margin: 20px;
+            padding: 10px;
+            border: 4px solid #111111;
+            border-radius: 10px;
+        }
+        button{
+            width: 150px;
+            height: 60px;
+            padding: 10px;
+            color: white;
+            background-color: #1312a8;
+            font-size: 22px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Mis tareas</h1>
+        <input type="text" id="ingresar-tarea" placeholder="Ingresa una tarea">
+        <button type="submit">Crear Tarea</button>
+        <div id="lista-de-tareas">
+
+        </div>
+    </main>
+</body>
+</html>
