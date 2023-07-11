@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hora y Fecha Actual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Ysabeau SC', sans-serif;
+        font-weight: bold;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+    }
+    #clock {
+      font-size: 48px;
+      text-align: center;
+      margin-top: auto;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      margin-bottom: auto;
+    }
+    #content{
+        width: 400px;
+        height: 400px;
+        background: wheat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 3px solid black;
+    }
+  </style>
+</head>
+<body>
+    <div id="content">
+        <div id="clock"></div>
+    </div>
+  <script>
+    function displayTime() {
+      let date = new Date();
+      let time = date.toLocaleTimeString();
+      let formattedDate = date.toLocaleDateString();
+
+      document.getElementById("clock").innerHTML = time + "<br>" + formattedDate;
+    }
+
+    setInterval(displayTime, 1000); // Actualizar cada segundo
+  </script>
+</body>
+</html>
