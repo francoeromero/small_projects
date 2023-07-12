@@ -20,3 +20,21 @@ function ordenar(){
 }
 
 console.log(ordenar())
+
+
+let lista = [1, 5, 4, 7, 8 , 0, 10]
+
+function bubbleSort(lista){
+    for(let i = 0; i < lista.length; i++){
+        for(let a = 0; a < lista.length - 1 - i; a++){
+            if(lista[a] > lista[a+1]){
+                const temp = lista[a];
+                lista[a] = lista[a+1];
+                lista[a+1] = temp;
+            }
+        }
+    }
+    return lista;
+}
+
+console.log(bubbleSort(lista))
