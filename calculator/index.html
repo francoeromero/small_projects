@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" readonly>
+    <button class="boton">1</button>
+    <button class="boton">2</button>
+    <button class="boton">3</button>
+    <button class="boton">4</button>
+    <button class="boton">5</button>
+    <button class="boton">6</button>
+    <button class="boton">7</button>
+    <button class="boton">8</button>
+    <button class="boton">9</button>
+    <button class="boton">+</button>
+    <button class="boton">-</button>
+    <button class="boton">*</button>
+    <button class="boton">/</button>
+    <button class="resultado">=</button>
+
+    <script>
+        const botonesNumeros= document.querySelectorAll('.boton');
+        const input = document.getElementById('input');
+        const operador = document.querySelector('.operador')
+        const resultado = document.querySelector('.resultado')
+        
+        function acumuladorNumeros(boton){
+            input.value += boton.innerText;
+        }
+
+        function eventosCadaBoton(boton){
+            boton.addEventListener('click', function(){acumuladorNumeros(boton)})
+        }
+        
+        // bucle que pasa por todos los botones activando un evento
+        botonesNumeros.forEach(eventosCadaBoton);
+        
+        resultado.addEventListener('click', function(){
+            // ejemplo: 33+5  tengo que dividir los numeros y segun el operador sumar,restar,o multiplicar
+            let contenido = input.value;
+            let calculo;
+            console.log(contenido.length)
+
+            for(let i = 0; i < contenido.length; i++){
+                if(!isNaN(contenido[i])){
+                    parseInt(contenido[i]);
+                }
+            }
+        })
+
+    
+
+    </script>
+</body>
+</html>
