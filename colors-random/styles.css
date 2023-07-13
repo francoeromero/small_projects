@@ -8,6 +8,8 @@ body{
     height: 100vh;
     background-color: #2B807B;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .centrar-flex{
@@ -17,11 +19,11 @@ body{
 }
 #contenedor{
     height: 220px;
-    width: 450px;
+    width: 550px;
     background-color: white;
     border: 5px solid black;
-    flex-wrap: wrap;
     flex-direction: column;
+    padding: 2rem;
 }
 #color{
     font-size: 70px;
@@ -31,13 +33,20 @@ button{
     font-size: 30px;
     color: white;
     background-color: #008CBA;
-    margin: 15px;
+    margin: 5px;
     padding: 10px 30px;
     border: 3px sold #008CBA;
     user-select: none;
     transition-duration: 0.4s;
     border-radius: 20px;
     cursor: pointer;
+}
+
+#boton-copiar{
+    background-color: #5e5e5e;
+}
+#boton-copiar:hover{
+    background-color: #393939;
 }
 button:hover{
     background-color: #0b4558;

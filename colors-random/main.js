@@ -1,5 +1,6 @@
 // elementos DOM
 const boton = document.getElementById('boton-color');
+const botonCopiar = document.getElementById('boton-copiar');
 const hexadecimal = document.getElementById('color');
 const fondo = document.querySelector('.fondo')
 
@@ -23,7 +24,34 @@ function aplicarColorHex(){
 // crear el evento
 boton.addEventListener('click', aplicarColorHex);
 
+function copiarCodigo() {
+    let codigo =  hexadecimal.innerText;
+    
+    // creo un elemento de entrada de texto oculto
+    let input = document.createElement('input');
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    
+    // paso el valor del contenido al input oculto
+    input.value = codigo;
+    
+    // selecciono el contenido del input oculto
+    input.select();
+    
+    // Copiar el contenido seleccionado al portapapeles
+    document.execCommand('copy');
+    
+    // Eliminar el input oculto
+    document.body.removeChild(input);
+  }
+  
+    
+botonCopiar.addEventListener('click', copiarCodigo)
 
+
+
+
+// otra forma de hacerlo:
 // function cambioColor(){
 
 //     let colorRandom = Math.round(Math.random()*10);
