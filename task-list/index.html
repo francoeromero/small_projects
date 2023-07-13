@@ -174,7 +174,15 @@
             let tarea = e.target.parentNode.parentNode;
             tarea.remove()
         }
-        boton.addEventListener('click', agregarTarea)
+        boton.addEventListener('click', agregarTarea);
+
+        // agregar tarea con enter
+        input.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter'){
+                agregarTarea();
+            }
+        })
+
     </script>
 </body>
 </html>
