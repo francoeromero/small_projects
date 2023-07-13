@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task list</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -60,6 +61,11 @@
             cursor: pointer;
             user-select: none;
         }
+        button:hover{
+            border: 4px solid #1312a8;
+            background-color:  rgb(59, 38, 135);
+            transition: 0.4s;
+        }
         #lista-de-tareas{
             width: 80%;
         }
@@ -87,6 +93,8 @@
         .tarea p{
             max-width: 350px;
         }
+
+        
         i{
             margin: 5px;
             padding: 10px;
@@ -111,8 +119,50 @@
         <input type="text" id="ingresar-tarea" placeholder="Ingresa una tarea">
         <button type="submit">Crear Tarea</button>
         <div id="lista-de-tareas">
-
+            <!-- aca va la tarea -->
         </div>
     </main>
+    <script>
+        const input = document.getElementById('ingresar-tarea');
+        const boton = document.querySelector('button');
+        const listaDeTarea = document.getElementById('lista-de-tareas');
+
+        function agregarTarea(){
+            if(input.value){
+                ////// tarea 
+                let tareaNueva = document.createElement('div');
+                tareaNueva.classList.add('tarea');
+                
+                ////// texto
+                let texto = document.createElement('p');
+                texto.innerText = input.value;
+                // padre(tareaNueva) que contiene al hijo(texto)
+                tareaNueva.appendChild(texto)
+
+                ////// contenedores de iconos
+                let iconos = document.createElement('div');
+                iconos.classList.add('iconos');
+                // tareaNueva contiene a iconos
+                tareaNueva.appendChild(iconos);
+
+                ////// iconos
+                let completar = document.createElement('i');
+                completar.classList.add('bi', 'bi-check-circle-fill', 'icono-completar');
+
+                let eliminar = document.createElement('i');
+                eliminar.classList.add('bi', 'bi-trash3-fill', 'icono-eliminar');
+
+                // agregar las dos variables a iconos
+                iconos.append(completar, eliminar);
+
+                // agregar el contenedor con mas jerarquia a la lista 
+                listaDeTarea.appendChild(tareaNueva)
+            }
+            else{
+                alert('Por favor ingresa una tarea')
+            }
+        }
+        boton.addEventListener('click', agregarTarea)
+    </script>
 </body>
 </html>
