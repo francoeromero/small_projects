@@ -43,6 +43,14 @@ function copiarCodigo() {
     
     // Eliminar el input oculto
     document.body.removeChild(input);
+
+    setTimeout(function(){
+        botonCopiar.innerText = 'Copiado!'
+    }, 100);
+
+    setTimeout(function(){
+        botonCopiar.innerText = 'Copiar'
+    }, 2000);
   }
   
     
