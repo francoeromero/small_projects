@@ -9,6 +9,8 @@
         const textRojo = document.getElementById('textRojo');
         const textVerde = document.getElementById('textVerde');
         const textAzul = document.getElementById('textAzul');
+        // boton
+        const boton = document.getElementById('boton-copiar');
 
         
         function actualizarRGB(rojo, verde, azul){
@@ -37,6 +39,34 @@
             actualizarRGB(rojo.value, verde.value, valorAzul);
         })
 
+        function copiarCodigo(){
+            let codigo = `rgb( ${rojo.value}, ${verde.value}, ${azul.value})`;
+            // crear input oculto
+            let input = document.createElement('input');
+            input.style.opacity = '0';
+            document.body.appendChild(input);
+            // paso el valor del contenido al input oculto
+            input.value = codigo;
+            // selecciono el contenido del input oculto
+            input.select();
+            // Copiar el contenido seleccionado al portapapeles
+            document.execCommand('copy');
+            // Eliminar el input oculto
+            document.body.removeChild(input);
+            // cambiar el texto luego de 1 milisegundo
+            setTimeout(function(){
+                boton.innerText = 'Copiado!';
+            }, 100);
+            // volver al texto anterior despues de 2 segundos
+            setTimeout(function(){
+                boton.innerText = 'Copiar';
+            }, 2000)
+        }
+        boton.addEventListener('click', copiarCodigo)
+
+
+            // boton.innerText = 'Copiado!';
+        
 
 
         
