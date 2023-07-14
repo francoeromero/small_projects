@@ -62,6 +62,7 @@
             border-radius: .5rem;
             margin: 1rem;
             cursor: pointer;
+            border: 5px solid gray;
         }
 
 
@@ -116,6 +117,13 @@
                 cuadro.style.animationDuration = '';
             },5000)
         })
+
+    
+        function soloUnaVez(){
+            console.log('prueba rueda mouse');
+            window.removeEventListener('wheel',soloUnaVez)
+        }
+        window.addEventListener('wheel', soloUnaVez);
     </script>
 </body>
 </html>
