@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background: black;
+        }
+        .cuadro{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border: 2px solid greenyellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: aliceblue;
+            font-size: 5rem;
+
+            position: relative;
+            /* animation-name: animacion;
+            animation-duration: 5s; */
+        }
+        @keyframes desplazar {
+            from{
+                left: -210px;
+            }
+            to{
+                left: 80%;
+            }
+        }
+        @keyframes girar {
+            from{
+                transform: rotate(360deg);
+            }
+            to{
+                transform: rotate(-360deg);
+            }
+        }
+        @keyframes desplazarGirar {
+            from{
+                left: -210px;
+                transform: rotate(360deg);
+            }
+            to{
+                left: 80%;
+                transform: rotate(-360deg);
+            }
+        }
+
+
+
+        button{
+            background: wheat;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cuadro">A</div>
+    <button id="desplazar">desplazar</button>
+    <button id="girar">girar</button>
+    <button id="desplazarGirar">desplazar-girar</button>
+    <script>
+        const desplazar = document.getElementById('desplazar')
+        const cuadro = document.querySelector('.cuadro');
+        const girar = document.getElementById('girar')
+        const desplazarGirar = document.getElementById('desplazarGirar');
+        let bandera = true;
+
+        desplazar.addEventListener('click', function(){
+            setTimeout(function(){
+                cuadro.style.animationName = 'desplazar';
+                cuadro.style.animationDuration = '1s';
+            } ,100);
+            setTimeout(function(){
+                cuadro.style.animationName = null;
+                cuadro.style.animationDuration = '';
+            },1000)
+        })
+
+        girar.addEventListener('click', function(){
+            setTimeout(function(){
+                cuadro.style.animationName = 'girar';
+                cuadro.style.animationDuration = '1s';
+            },100);
+            setTimeout(function(){
+                cuadro.style.animationName = null;
+                cuadro.style.animationDuration = '';
+            },1000)
+        })
+
+        desplazarGirar.addEventListener('click', function(){
+            setTimeout(function(){
+                cuadro.style.animationName = 'desplazarGirar';
+                cuadro.style.animationDuration = '1s';
+            },100);
+            setTimeout(function(){
+                cuadro.style.animationName = null;
+                cuadro.style.animationDuration = '';
+            },1000)
+        })
+    </script>
+</body>
+</html>

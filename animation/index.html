@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --colorBlanco : #fff;
+            --colorNegro: #000000;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(45deg, #27282E, #161618);
+            color: var(--colorBlanco);
+            font-family: 'Arial';
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .fondo-animado{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        span.uno,
+        span.dos,
+        span.tres,
+        span.cuatro {
+            border: 0;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: var(--colorBlanco);
+        }
+        span.uno{
+            width: 100px;
+            height: 100px;
+            bottom: -100px;
+            background-color: #E86BFF;
+        }
+        span.dos{
+            width: 70px;
+            height: 70px;
+            bottom: -70px;
+            background-color: #90BAFF;
+        }
+        span.tres{
+            width: 50px;
+            height: 50px;
+            bottom: -50px;
+            background-color: #FF5071;
+        }
+        span.cuatro{
+            width: 20px;
+            height: 20px;
+            bottom: -20px;
+            background-color: #67F3D4;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="contenedor-header">
+        <div class="fondo-animado">
+            <span class="uno"></span>
+            <span class="dos"></span>
+            <span class="tres"></span>
+            <span class="cuatro"></span>
+
+            <span class="uno"></span>
+            <span class="dos"></span>
+            <span class="tres"></span>
+            <span class="cuatro"></span>
+
+            <span class="uno"></span>
+            <span class="dos"></span>
+            <span class="tres"></span>
+            <span class="cuatro"></span>
+        </div>
+    </header>
+
+  
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background: black;
+        }
+        .contenedor{
+            width: 300px;
+            height: 200px;
+            background: green;
+            position: relative;
+        }
+        .elemento{
+            width: 100px;
+            height: 50px;
+            background: blue;
+            position: absolute;
+            /* left: 0; */
+            /* right: 0; */
+            /* top: 0; */
+            /* bottom: 0; */
+            left: calc(32.5% );
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="elemento">
+            Elemento
+        </div>
+    </div>
+</body>
+</html>
