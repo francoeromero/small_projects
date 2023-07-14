@@ -20,8 +20,6 @@
             font-size: 5rem;
 
             position: relative;
-            /* animation-name: animacion;
-            animation-duration: 5s; */
         }
         @keyframes desplazar {
             from{
@@ -95,12 +93,13 @@
         desplazarGirar.addEventListener('click', function(){
             setTimeout(function(){
                 cuadro.style.animationName = 'desplazarGirar';
-                cuadro.style.animationDuration = '1s';
+                cuadro.style.animationDuration = '2s';
+                cuadro.style.animationTimingFunction = 'ease-out';
             },100);
             setTimeout(function(){
                 cuadro.style.animationName = null;
                 cuadro.style.animationDuration = '';
-            },1000)
+            },5000)
         })
     </script>
 </body>
