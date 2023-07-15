@@ -18,41 +18,71 @@
     <button class="boton">9</button>
     <button class="boton">+</button>
     <button class="boton">-</button>
-    <button class="boton">*</button>
-    <button class="boton">/</button>
     <button class="resultado">=</button>
+    <button class="borrar">borrar</button>
 
     <script>
         const botonesNumeros= document.querySelectorAll('.boton');
         const input = document.getElementById('input');
         const operador = document.querySelector('.operador')
         const resultado = document.querySelector('.resultado')
+        const borrar = document.querySelector('.borrar')
         
         function acumuladorNumeros(boton){
             input.value += boton.innerText;
         }
 
         function eventosCadaBoton(boton){
-            boton.addEventListener('click', function(){acumuladorNumeros(boton)})
+            boton.addEventListener('click', function(){
+                acumuladorNumeros(boton)
+            })
         }
         
         // bucle que pasa por todos los botones activando un evento
         botonesNumeros.forEach(eventosCadaBoton);
         
         resultado.addEventListener('click', function(){
-            // ejemplo: 33+5  tengo que dividir los numeros y segun el operador sumar,restar,o multiplicar
-            let contenido = input.value;
-            let calculo;
-            console.log(contenido.length)
+            // ejemplo: '33+5'  tengo que dividir los numeros y segun el operador sumar,restar,o multiplicar
+            let contenido = input.value; // 33+5
+            let acumulador = '';
+            let lista = [];
 
             for(let i = 0; i < contenido.length; i++){
                 if(!isNaN(contenido[i])){
-                    parseInt(contenido[i]);
+                    acumulador += contenido[i];
+                }
+                else if(contenido[i] === '+'){
+                    lista.push(parseInt(acumulador));
+                    lista.push(contenido[i]);
+                    acumulador = '';
+                }
+                else if(contenido[i] === '-'){
+                    lista.push(parseInt(acumulador));
+                    lista.push(contenido[i]);
+                    acumulador = '';
                 }
             }
+            lista.push(parseInt(acumulador));
+
+            let resultado = lista[0];
+
+            for(let i = 1; i < lista.length; i+=2){
+                let operador = lista[i];
+                if(lista[i] === '+'){
+                    resultado += lista[i+1];
+                }
+                else if(lista[i] === '-'){
+                    resultado -= lista[i+1];
+                }
+            }
+
+            return input.value = resultado;
+
         })
 
-    
+        borrar.addEventListener('click', function(){
+            input.value = ''
+        });
 
     </script>
 </body>
