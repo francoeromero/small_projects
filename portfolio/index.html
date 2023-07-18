@@ -53,12 +53,14 @@
         opacity: 0.5;
         z-index: 3; 
         animation: animacion2 0.8s 3;
+        animation: animacion4 6s infinite linear;
         left: 0.1rem;
     }
     .texto3{
         color: rgb(211, 25, 183);
         opacity: 0.5;
         animation: animacion1 1s 3;
+        animation: animacion3 6s infinite linear;
         z-index: 2;
         left: 0.1rem;
     }
@@ -117,7 +119,7 @@
                 
             }
             25%{
-                left: 1rem;
+                left: 0.5rem;
             }
             50%{
                 left: 0.1rem;
@@ -135,17 +137,47 @@
                 
             }
             25%{
-                left: -0.3rem;
+                left: -0.5rem;
             }
             50%{
                 left: 0.1rem;
             }
             75%{
-                left: -0.5rem;
+                left: -0.2rem;
             }
             100%{
                 left: 0.1rem;
             }
+        }
+    @keyframes animacion3 {
+          0% {
+            left: 0.1rem;
+        }
+        20% {
+            left: 0.5rem;
+        }
+        40% {
+            left: 0.1rem;
+        }
+        60% {
+            left: 0.2rem;
+        }
+        80% {
+            left: 0.1rem;
+        }
+        100% {
+            left: 0.1rem;
+    } 
+        }
+    @keyframes animacion4 {
+            0%{
+              left: 0.1rem
+            }
+            20%{left: -0.5rem;}
+            40%{left: 0.1rem}
+            60%{left: -0.2;}
+            80%{left: 0.1rem}
+            100%{left: 0.1rem}
         }
 
     @keyframes botonProyectos{
@@ -164,7 +196,7 @@
    
     #engranaje{
       position: fixed;
-      width: 7rem;
+      width: 5rem;
       animation: engranaje 6s infinite linear;
       transform: rotate(360);
       z-index: 5;
@@ -172,7 +204,7 @@
     }
     #casco{
       position: fixed;
-      width: 7rem;
+      width: 5rem;
       z-index: 6;
     }
 
@@ -206,6 +238,67 @@
       left: 10rem;
       top: 50rem;
     }
+
+    /* .content-home{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+    } */
+    
+    .boton-menu-home{
+      background: rgb(197, 197, 197);
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 50%; /* Para centrar horizontalmente */
+      transform: translateX(-50%); /* Ajustar para centrar exactamente */
+      border-radius: 50%;
+      text-decoration: none;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      display: flex; /* Utilizamos flex para centrar verticalmente */
+      align-items: center; /* Centrar verticalmente */
+      justify-content: center; /* Centrar horizontalmente */
+      animation:  btnMenu 2s infinite;
+      z-index: 8;
+      color: #202020;
+    }
+    .efecto-detras{
+      background: white;
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 50%; /* Para centrar horizontalmente */
+      transform: translateX(-50%); /* Ajustar para centrar exactamente */
+      border-radius: 50%;
+      display: flex; /* Utilizamos flex para centrar verticalmente */
+      align-items: center; /* Centrar verticalmente */
+      justify-content: center; /* Centrar horizontalmente */
+      z-index: 4;
+      animation: btnDetras 2s infinite;
+    }
+    @keyframes btnDetras {
+      0%{
+        transform: scale(0.4);
+        opacity: 0.5;
+      }
+
+      90%,100%{
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+    @keyframes btnMenu {
+      0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    }
     
     </style>
 </head>
@@ -215,8 +308,11 @@
         <img class="logo" id="casco" src="./img/casco.png" alt="">
         <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
       </li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Proyects</a></li>
+      <li class="content-home">
+        <a class="boton-menu-home" href="#">Home</a>
+        <i class="efecto-detras"></i>
+      </li>
+
     </ul>
     <main id="textos" class="textos">
         
@@ -230,118 +326,7 @@
    
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
-    <script>
-        particlesJS({
-  "particles": {
-    "number": {
-      "value": 86,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "#fff"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 10,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": false,
-      "distance": 500,
-      "color": "#ffffff",
-      "opacity": 0.4,
-      "width": 2
-    },
-    "move": {
-      "enable": true,
-      "speed": 3,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 0.5
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 4,
-        "duration": 0.3,
-        "opacity": 1,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 95.72202324449793,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
-  "retina_detect": true
-})
-    </script>
+    <script src="./particlesjs.js"></script>
     <script>
         const texto1 = document.querySelector('.texto1');
         const texto2 = document.querySelector('.texto2');
@@ -357,8 +342,8 @@
                 // texto3.style.fontStyle = 'normal'
             }, 10)
             setTimeout(function(){
-                texto2.style.animation = 'animacion2 0.8s 3';
-                texto3.style.animation = 'animacion1 1s 3';
+                texto2.style.animation = 'animacion2 2s 3';
+                texto3.style.animation = 'animacion1 2s 3';
                 texto1.style.fontStyle = 'italic'
                 texto2.style.fontStyle = 'italic'
                 texto3.style.fontStyle = 'italic'
@@ -372,7 +357,6 @@
             }, 2000)
         }
 
-       
 
     </script>
 </body>
