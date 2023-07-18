@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
     <style>
         *{
             margin: 0;
         }
         #particles-js{
             background-color: #000000;
-            background-image: linear-gradient(-180deg, #000000 0%, #414141 74%);
+            background-image: linear-gradient(-180deg, #000000 0%, #3b3e42 94%);
             position: fixed;
             width: 100%;
             height: 100%;
@@ -18,16 +21,141 @@
             z-index: -1;
         }
 
-        #principal{
-            color: rgb(34, 101, 159);
-            font-size: 2rem;
+
+    /* .textos{
+        /* display: flex;
+        width: 100%;
+        height: 100vh;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        border: 2px solid red; } */
+    .texto1,
+    .texto2,
+    .texto3{
+        top: 12rem;
+        margin: 5rem;
+        position: absolute;
+        font-family: 'Zen Tokyo Zoo', cursive;
+        font-size: 3rem;
+    }
+
+    .texto1{
+        color: rgb(173, 173, 173);
+        z-index: 4;
+    }
+    .texto2{
+        color: rgb(25, 199, 202);
+        opacity: 0.5;
+        z-index: 3; 
+        /* animation: animacion2 0.8s 3; */
+        left: 0.1rem;
+    }
+    .texto3{
+        color: rgb(211, 25, 183);
+        opacity: 0.5;
+        /* animation: animacion1 1s 3; */
+        z-index: 2;
+        left: 0.1rem;
+    }
+    .texto4{
+        position: absolute;
+        color: white;
+        top: 20rem;
+        left: 5rem;
+        font-size: 2rem;
+        font-family: 'Zen Tokyo Zoo', cursive;
+        /* Joyride Round */
+    }
+
+    .boton{
+        position: absolute;
+        top: 24rem;
+        left: 5rem;
+        width: 10rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        background: rgb(191, 189, 189);
+        color: black;
+        cursor: pointer;
+        border: 2px solid rgb(91, 91, 91);
+    }
+
+    .boton:hover{
+        background: none;
+        color: white;
+        border: 2px solid white;
+        transition: 1s;
+        animation: botonProyectos 1s 1;
+    }
+
+    /* animacion */
+    @keyframes animacion1 {
+            0%{
+                left: 0.1rem;
+                
+            }
+            25%{
+                left: 1rem;
+            }
+            50%{
+                left: 0.1rem;
+            }
+            75%{
+                left: 0.2rem;
+            }
+            100%{
+                left: 0.1rem;
+            }
         }
+    @keyframes animacion2 {
+            0%{
+                left: 0.1rem;
+                
+            }
+            25%{
+                left: -0.3rem;
+            }
+            50%{
+                left: 0.1rem;
+            }
+            75%{
+                left: -0.5rem;
+            }
+            100%{
+                left: 0.1rem;
+            }
+        }
+
+    @keyframes botonProyectos{
+        0%{
+            transform: rotate(360deg);
+        }
+
+        100%{
+            transform: rotate(-360deg);
+        }
+    }
+
+    
     </style>
 </head>
 <body>
-    <main id="principal">
-        Hola mundo! 
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+    </ul>
+    <main id="textos" class="textos">
+        
+        <h2 class="texto1">FRANCO EZEQUIEL ROMERO</h2>
+        <h2 class="texto2">FRANCO EZEQUIEL ROMERO</h2>
+        <h2 class="texto3">FRANCO EZEQUIEL ROMERO</h2>
+        <h3 class="texto4"><i>software developer | architect</i></h3>
+        <button class="boton">PROYECTS</button>
     </main>
+    
 
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
@@ -142,6 +270,22 @@
   },
   "retina_detect": true
 })
+    </script>
+    <script>
+        const miNombre = document.querySelector('.texto1');
+        const texto2 = document.querySelector('.texto2');
+        const texto3 = document.querySelector('.texto3');
+        miNombre.onmouseover = () => {
+            setTimeout(function(){
+                texto2.style.animation = 'animacion2 0.8s 3';
+                texto3.style.animation = 'animacion1 1s 3';
+            }, 100)
+            setTimeout(function(){
+                texto2.style.animation = 'none';
+                texto3.style.animation = 'none';
+            }, 2000)
+            
+        }
     </script>
 </body>
 </html>
