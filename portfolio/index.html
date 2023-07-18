@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300&display=swap" rel="stylesheet">
+
     <style>
         *{
             margin: 0;
@@ -39,6 +41,7 @@
         position: absolute;
         font-family: 'Zen Tokyo Zoo', cursive;
         font-size: 3rem;
+        font-style: italic;
     }
 
     .texto1{
@@ -49,13 +52,13 @@
         color: rgb(25, 199, 202);
         opacity: 0.5;
         z-index: 3; 
-        /* animation: animacion2 0.8s 3; */
+        animation: animacion2 0.8s 3;
         left: 0.1rem;
     }
     .texto3{
         color: rgb(211, 25, 183);
         opacity: 0.5;
-        /* animation: animacion1 1s 3; */
+        animation: animacion1 1s 3;
         z-index: 2;
         left: 0.1rem;
     }
@@ -65,8 +68,15 @@
         top: 20rem;
         left: 5rem;
         font-size: 2rem;
-        font-family: 'Zen Tokyo Zoo', cursive;
+        /* font-family: 'Zen Tokyo Zoo', cursive; */
+        font-family: 'Turret Road', cursive;
+        font-weight: 200;
+        /* transform: skew(-20deg); */
         /* Joyride Round */
+        font-weight: bold;
+    }
+    .texto4:hover{
+      transition: 0.7s;
     }
 
     .boton{
@@ -75,20 +85,30 @@
         left: 5rem;
         width: 10rem;
         height: 2.5rem;
-        border-radius: 10px;
-        background: rgb(191, 189, 189);
-        color: black;
+        transform: skew(-20deg);
+        border-radius: 0.2rem;
         cursor: pointer;
-        border: 2px solid rgb(91, 91, 91);
+        background: none;
+        color: rgb(255, 255, 255);
+        border: 2px solid white;
+        overflow: hidden;
+    }
+    .boton::before{
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: white;
+      left: -10rem;
+      top: -1rem;
+      width: 10rem;
+      /* animation: botonProyectos 1s ease; */
+    }
+    .boton:hover::before{
+      transform: translateX(100%);
+      transition: 1s;
     }
 
-    .boton:hover{
-        background: none;
-        color: white;
-        border: 2px solid white;
-        transition: 1s;
-        animation: botonProyectos 1s 1;
-    }
 
     /* animacion */
     @keyframes animacion1 {
@@ -130,7 +150,44 @@
 
     @keyframes botonProyectos{
         0%{
-            transform: rotate(360deg);
+            left: -10rem;
+        }
+
+        100%{
+          left: 0rem;
+        }
+    }
+    .logo{
+      cursor: pointer;
+      animation: girarRapido 10s infinite linear;
+    }
+   
+    #engranaje{
+      position: fixed;
+      width: 7rem;
+      animation: engranaje 6s infinite linear;
+      transform: rotate(360);
+      z-index: 5;
+      opacity: 0.9;
+    }
+    #casco{
+      position: fixed;
+      width: 7rem;
+      z-index: 6;
+    }
+
+    @keyframes girarRapido{
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+
+      10%, 90% {
+        transform: rotate(-360deg);
+      }
+    }
+    @keyframes engranaje{
+      0%{
+            transform: rotate(0deg);
         }
 
         100%{
@@ -138,14 +195,28 @@
         }
     }
 
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .prueba{
+      scale: 2;
+      position: absolute;
+      left: 10rem;
+      top: 50rem;
+    }
     
     </style>
 </head>
 <body>
     <ul>
-        <li>
-            <a href="#">Home</a>
-        </li>
+      <li>
+        <img class="logo" id="casco" src="./img/casco.png" alt="">
+        <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
+      </li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Proyects</a></li>
     </ul>
     <main id="textos" class="textos">
         
@@ -155,8 +226,8 @@
         <h3 class="texto4"><i>software developer | architect</i></h3>
         <button class="boton">PROYECTS</button>
     </main>
-    
-
+    <p class="prueba">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit nemo commodi cum, alias itaque necessitatibus. Dolores animi ullam voluptates harum porro reprehenderit error magni ratione odit? Ab consequatur soluta excepturi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. A ex animi magni excepturi, cumque architecto aperiam et optio tempore sint quae rerum ducimus ratione! Nihil est aut similique deleniti! Quaerat.</p>
+   
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
     <script>
@@ -272,20 +343,37 @@
 })
     </script>
     <script>
-        const miNombre = document.querySelector('.texto1');
+        const texto1 = document.querySelector('.texto1');
         const texto2 = document.querySelector('.texto2');
         const texto3 = document.querySelector('.texto3');
-        miNombre.onmouseover = () => {
+        const boton = document.querySelector('.boton::before');
+
+        texto1.onmouseover = () => {
+          setTimeout(function(){
+                texto2.style.animation = 'none';
+                texto3.style.animation = 'none';
+                // texto1.style.fontStyle = 'normal'
+                // texto2.style.fontStyle = 'normal'
+                // texto3.style.fontStyle = 'normal'
+            }, 10)
             setTimeout(function(){
                 texto2.style.animation = 'animacion2 0.8s 3';
                 texto3.style.animation = 'animacion1 1s 3';
+                texto1.style.fontStyle = 'italic'
+                texto2.style.fontStyle = 'italic'
+                texto3.style.fontStyle = 'italic'
             }, 100)
             setTimeout(function(){
                 texto2.style.animation = 'none';
                 texto3.style.animation = 'none';
+              // texto1.style.fontStyle = 'normal'
+              //   texto2.style.fontStyle = 'normal'
+              //   texto3.style.fontStyle = 'normal'
             }, 2000)
-            
         }
+
+       
+
     </script>
 </body>
 </html>
