@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         *{
             margin: 0;
@@ -23,16 +23,6 @@
             z-index: -1;
         }
 
-
-    /* .textos{
-        /* display: flex;
-        width: 100%;
-        height: 100vh;
-        color: white;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        border: 2px solid red; } */
     .texto1,
     .texto2,
     .texto3{
@@ -91,6 +81,8 @@
         border-radius: 0.2rem;
         cursor: pointer;
         background: none;
+        font-size: 1.5rem;
+        font-family: Arial, Helvetica, sans-serif;
         color: rgb(255, 255, 255);
         border: 2px solid white;
         overflow: hidden;
@@ -112,7 +104,111 @@
     }
 
 
-    /* animacion */
+ 
+
+    /* /////  LOGO /////// */
+    .logo{
+      top: 0.4rem;
+      /* cursor: pointer; */
+      animation: girarRapido 10s infinite linear;
+    }
+   
+    #engranaje{
+      position: fixed;
+      width: 6rem;
+      animation: engranaje 6s infinite linear;
+      transform: rotate(360);
+      z-index: 5;
+      opacity: 0.9;
+    }
+    #casco{
+      position: fixed;
+      width: 6rem;
+      z-index: 6;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .active{
+      position: absolute;
+      z-index: 9;
+      top: 2rem;
+      width: 3rem;
+      height: 3rem;
+      background: #eaeaea;
+      border: 3px solid #c1c1c1;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9;
+    }
+    .active i{
+      color: #0b0b0b;
+    }
+    
+    .circle{
+      position: absolute;
+      z-index: 9;
+      top: 2rem;
+      width: 3rem;
+      height: 3rem;
+      background: #0b0b0b;
+      border: 3px solid #c1c1c1;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9;
+    }
+    .circle::before {
+      content: ""; /* Agregamos contenido vacío al pseudo-elemento */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0b0b0b;
+      border-radius: 50%;
+      z-index: 1; /* Cambiado a -1 para colocar el pseudo-elemento detrás del contenido */
+    }
+    .circle:hover::before{
+      animation: btnDetras 1.2s infinite;
+    }
+    .circle:hover{
+      animation: girarRapido 5s 1;
+    }
+    .home{
+      left: 45rem;
+    }
+    .aboutMe{
+      left: 50rem;
+    }
+    .projects{
+      left: 55rem;
+    }
+    .skills{
+      left: 60rem;
+    }
+    .certificates{
+      left: 65rem;
+    }
+
+    i{
+      color: #c1c1c1;
+      scale: 2;
+      cursor: pointer;
+      z-index: 9;
+    }
+
+       /* ////// ANIMACION //////*/
     @keyframes animacion1 {
             0%{
                 left: 0.1rem;
@@ -179,7 +275,6 @@
             80%{left: 0.1rem}
             100%{left: 0.1rem}
         }
-
     @keyframes botonProyectos{
         0%{
             left: -10rem;
@@ -189,25 +284,6 @@
           left: 0rem;
         }
     }
-    .logo{
-      cursor: pointer;
-      animation: girarRapido 10s infinite linear;
-    }
-   
-    #engranaje{
-      position: fixed;
-      width: 5rem;
-      animation: engranaje 6s infinite linear;
-      transform: rotate(360);
-      z-index: 5;
-      opacity: 0.9;
-    }
-    #casco{
-      position: fixed;
-      width: 5rem;
-      z-index: 6;
-    }
-
     @keyframes girarRapido{
       0%, 100% {
         transform: rotate(0deg);
@@ -226,69 +302,18 @@
             transform: rotate(-360deg);
         }
     }
-
-    ul {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .prueba{
-      scale: 2;
-      position: absolute;
-      left: 10rem;
-      top: 50rem;
-    }
-
-    /* .content-home{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100%;
-    } */
     
-    .boton-menu-home{
-      background: rgb(197, 197, 197);
-      width: 3rem;
-      height: 3rem;
-      position: absolute;
-      top: 0.5rem;
-      left: 50%; /* Para centrar horizontalmente */
-      transform: translateX(-50%); /* Ajustar para centrar exactamente */
-      border-radius: 50%;
-      text-decoration: none;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      display: flex; /* Utilizamos flex para centrar verticalmente */
-      align-items: center; /* Centrar verticalmente */
-      justify-content: center; /* Centrar horizontalmente */
-      animation:  btnMenu 2s infinite;
-      z-index: 8;
-      color: #202020;
-    }
-    .efecto-detras{
-      background: white;
-      width: 3rem;
-      height: 3rem;
-      position: absolute;
-      top: 0.5rem;
-      left: 50%; /* Para centrar horizontalmente */
-      transform: translateX(-50%); /* Ajustar para centrar exactamente */
-      border-radius: 50%;
-      display: flex; /* Utilizamos flex para centrar verticalmente */
-      align-items: center; /* Centrar verticalmente */
-      justify-content: center; /* Centrar horizontalmente */
-      z-index: 4;
-      animation: btnDetras 2s infinite;
-    }
     @keyframes btnDetras {
       0%{
         transform: scale(0.4);
         opacity: 0.5;
+        background: #0b0b0b;
       }
 
       90%,100%{
         transform: scale(2);
         opacity: 0;
+        background: #c1c1c1;
       }
     }
     @keyframes btnMenu {
@@ -299,18 +324,42 @@
         transform: scale(1.1);
     }
     }
-    
     </style>
 </head>
 <body>
+  <li>
+    <img class="logo" id="casco" src="./img/casco.png" alt="">
+    <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
+  </li>
     <ul>
-      <li>
-        <img class="logo" id="casco" src="./img/casco.png" alt="">
-        <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
-      </li>
-      <li class="content-home">
-        <a class="boton-menu-home" href="#">Home</a>
+      <!-- <a class="boton-menu-home active" href="#">HOME</a>
         <i class="efecto-detras"></i>
+        <a class="" href="#">PROJECT</a>
+        <i class="efecto-detras"></i> -->
+      <li>
+        <div class="home circle">
+          <i class="bi bi-house-door"></i>
+        </div>
+      </li>
+      <li>
+        <div class="aboutMe circle">
+          <i class="bi bi-person-vcard"></i>
+        </div>
+      </li>
+      <li>
+        <div class="projects circle">
+          <i class="bi bi-folder"></i>
+        </div>
+      </li>
+      <li>
+        <div class="skills circle">
+          <i class="bi bi-gear"></i>
+        </div>
+      </li>
+      <li>
+        <div class="certificates circle">
+          <i class="bi bi-mortarboard"></i>
+        </div>
       </li>
 
     </ul>
@@ -319,27 +368,27 @@
         <h2 class="texto1">FRANCO EZEQUIEL ROMERO</h2>
         <h2 class="texto2">FRANCO EZEQUIEL ROMERO</h2>
         <h2 class="texto3">FRANCO EZEQUIEL ROMERO</h2>
-        <h3 class="texto4"><i>software developer | architect</i></h3>
-        <button class="boton">PROYECTS</button>
+        <h3 class="texto4"><i>Software developer | Architect</i></h3>
+        <button class="boton">CV</button>
     </main>
-    <p class="prueba">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit nemo commodi cum, alias itaque necessitatibus. Dolores animi ullam voluptates harum porro reprehenderit error magni ratione odit? Ab consequatur soluta excepturi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. A ex animi magni excepturi, cumque architecto aperiam et optio tempore sint quae rerum ducimus ratione! Nihil est aut similique deleniti! Quaerat.</p>
-   
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
     <script src="./particlesjs.js"></script>
     <script>
+      // ELEMENTOS DOM
         const texto1 = document.querySelector('.texto1');
         const texto2 = document.querySelector('.texto2');
         const texto3 = document.querySelector('.texto3');
         const boton = document.querySelector('.boton::before');
+        const circulos = document.querySelectorAll('.circle');
+        const activo = document.querySelector('.active');
+        const iconos = document.querySelectorAll('i');
 
+      // MI NOMBRE EFECTO 
         texto1.onmouseover = () => {
           setTimeout(function(){
                 texto2.style.animation = 'none';
                 texto3.style.animation = 'none';
-                // texto1.style.fontStyle = 'normal'
-                // texto2.style.fontStyle = 'normal'
-                // texto3.style.fontStyle = 'normal'
             }, 10)
             setTimeout(function(){
                 texto2.style.animation = 'animacion2 2s 3';
@@ -351,11 +400,53 @@
             setTimeout(function(){
                 texto2.style.animation = 'none';
                 texto3.style.animation = 'none';
-              // texto1.style.fontStyle = 'normal'
-              //   texto2.style.fontStyle = 'normal'
-              //   texto3.style.fontStyle = 'normal'
             }, 2000)
         }
+
+  // EVENTO AL PASAR EL MOUSE POR EL MENU 
+  circulos.forEach((circle) => {
+  circle.addEventListener('mouseover', () => {
+    const icon = circle.querySelector('i');
+    const currentClass = icon.className; // Obtenemos las clases existentes del elemento i
+    const newClass = currentClass + '-fill'; // Agregamos el sufijo '-fill'
+    icon.className = newClass; // Asignamos la nueva clase al elemento i
+  });
+  
+  circle.addEventListener('mouseout', () => {
+    const icon = circle.querySelector('i');
+    const currentClass = icon.className;
+    const newClass = currentClass.replace('-fill', ''); // Quitamos el sufijo '-fill'
+    icon.className = newClass;
+    icon.style.transition = '1s'
+  });
+});
+
+
+  // EVENTO AL DARLE CLICK AL MENU
+  circulos.forEach(function(elemento, index) {
+  elemento.addEventListener('click', function() {
+    elemento.classList.remove('circle');
+    elemento.classList.add('active');
+    
+
+    
+    // Recorre los demás elementos para eliminar la clase 'active'.
+    circulos.forEach(function(otroElemento, otroIndex) {
+      if (otroIndex !== index) {
+        otroElemento.classList.remove('active');
+        otroElemento.classList.add('circle');
+      }
+    });
+  });
+
+  // Simular clic en el primer elemento
+  if (index === 0) {
+    elemento.click();
+  }
+});
+
+
+
 
 
     </script>
