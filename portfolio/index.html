@@ -72,6 +72,9 @@
     }
 
     .boton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
         top: 25rem;
         left: 5rem;
@@ -415,13 +418,12 @@
 
     .cv{
       color: white;
-      position: absolute;
       font-size: 1.5rem;
       font-family: sans-serif;
-      top: 25.4rem;
-      left: 8.9rem;
+      transform: skewX(-5deg);
+      z-index: 9;
     }
-
+    
     </style>
 </head>
 <body>
@@ -467,8 +469,9 @@
           <h3 class="texto4"><i>Software developer | Architect</i></h3>
           <p class="texto5">I will turn your ideas into projects</p>
           <div class="parpadeo"></div>
-          <p class="cv">CV</p>
-          <button class="boton"></button>
+          <button class="boton">
+            <p class="cv">CV</p>
+          </button>
       </main>
     </section>
     <div id="particles-js"></div>
@@ -483,19 +486,17 @@
         const texto4 = document.querySelector('.texto4');
         const texto5 = document.querySelector('.texto5');
         const texto5_parpadeo = document.querySelector('.parpadeo');
-        const boton = document.querySelector('.boton::before');
+        const boton = document.querySelector('.boton');
         const circulos = document.querySelectorAll('.circle');
         const activo = document.querySelector('.active');
         const iconos = document.querySelectorAll('i');
         const cursor = document.querySelector('.cursor');
-        const textoCV = document.querySelector('.cv');
 
       // HOME.style.display = 'none';
       // AL CARGARSE ANIMACION ESCRITURA
       document.addEventListener('DOMContentLoaded', function(){
         setTimeout(function(){
                 texto5.style.animation = 'teclear 3s steps(16)';
-                console.log('primer set')
               }, 10)
 
         setTimeout(function(){        
@@ -505,14 +506,12 @@
         setTimeout(function(){
               texto5_parpadeo.style.display = 'none';  
               texto5.style.animation = 'teclear-reverse 3s 1';
-          console.log('segundo set')
         }, 6000)
 
         setTimeout(function(){
           texto5_parpadeo.style.left = '40rem';  
           texto5.style.animation = 'teclear 3s steps(16)';
           texto5.innerText = 'I will design your project in your style'
-          console.log('tercer set')
         }, 9000)
 
         setTimeout(function(){        
@@ -521,6 +520,36 @@
         }, 12000)
       })
       
+      // BOTON CV AL PASAR MOUSE
+      boton.onmouseover = () => {
+        let letra = document.querySelector('.cv');
+        setTimeout(function(){
+          letra.style.color = '#0b0b0b';
+          letra.style.transition = '1s'
+        },100)
+        setTimeout(function(){
+          letra.style.color = 'gray';
+        // letra.style.transition = '1s'
+        },2000)
+      }
+      // BOTON CV AL DARLE CLICK
+      boton.addEventListener('click', function(){
+        let letra = document.querySelector('.cv');
+        setTimeout(function(){
+          letra.innerText = 'loading..'
+          letra.style.transition = '1s';
+        }, 10);
+        setTimeout(function(){
+          letra.innerText = 'done';
+          letra.style.transition = '1s';
+        },2000);
+        setTimeout(function(){
+          letra.innerText = 'CV';
+          letra.style.transition = '1s';
+          letra.style.color = 'white'
+        },3000)
+      })
+
 
       // CURSOR MOUSE
       document.addEventListener('mousemove', (e) => {
