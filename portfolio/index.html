@@ -364,14 +364,24 @@
       font-weight: 100;
       font-family: 'Turret Road', cursive;
       /* animation: teclear 3s steps(16) forwards, teclear-reverse 1s 8s forwards; */
-      animation: teclear 3s steps(16);
+      /* animation: teclear 3s steps(16); */
     }
-    .texto5::after{
+    /* .texto5::after{
       content: ' ';
       position: absolute;
       width: 0.15rem;
       height: 2rem;
       left: 31.5rem;
+      background: white;
+      animation: parpadeo 1s infinite;
+    } */
+    .parpadeo{
+      display: none;
+      position: absolute;
+      width: 0.15rem;
+      height: 2rem;
+      left: 36.5rem;
+      top: 20rem;
       background: white;
       animation: parpadeo 1s infinite;
     }
@@ -402,68 +412,115 @@
       }
     }
     
+
+    .cv{
+      color: white;
+      position: absolute;
+      font-size: 1.5rem;
+      font-family: sans-serif;
+      top: 25.4rem;
+      left: 8.9rem;
+    }
+
     </style>
 </head>
 <body>
   <div class="cursor"></div>
-  <li>
-    <img class="logo" id="casco" src="./img/casco.png" alt="">
-    <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
-  </li>
-    <ul>
-      <!-- <a class="boton-menu-home active" href="#">HOME</a>
-        <i class="efecto-detras"></i>
-        <a class="" href="#">PROJECT</a>
-        <i class="efecto-detras"></i> -->
-      <li>
-        <div class="home circle">
-          <i class="bi bi-house-door"></i>
-        </div>
-      </li>
-      <li>
-        <div class="aboutMe circle">
-          <i class="bi bi-person-vcard"></i>
-        </div>
-      </li>
-      <li>
-        <div class="projects circle">
-          <i class="bi bi-folder"></i>
-        </div>
-      </li>
-      <li>
-        <div class="skills circle">
-          <i class="bi bi-gear"></i>
-        </div>
-      </li>
-      <li>
-        <div class="certificates circle">
-          <i class="bi bi-mortarboard"></i>
-        </div>
-      </li>
 
-    </ul>
-    <main id="textos" class="textos">
-        
-        <h2 class="texto1">FRANCO EZEQUIEL ROMERO</h2>
-        <h2 class="texto2">FRANCO EZEQUIEL ROMERO</h2>
-        <h2 class="texto3">FRANCO EZEQUIEL ROMERO</h2>
-        <h3 class="texto4"><i>Software developer | Architect</i></h3>
-        <p class="texto5">I will turn your ideas into projects</p>
-        <button class="boton">CV</button>
-    </main>
+    <li>
+      <img class="logo" id="casco" src="./img/casco.png" alt="">
+      <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
+    </li>
+      <ul>
+        <li>
+          <div class="home circle">
+            <i class="bi bi-house-door"></i>
+          </div>
+        </li>
+        <li>
+          <div class="aboutMe circle">
+            <i class="bi bi-person-vcard"></i>
+          </div>
+        </li>
+        <li>
+          <div class="projects circle">
+            <i class="bi bi-folder"></i>
+          </div>
+        </li>
+        <li>
+          <div class="skills circle">
+            <i class="bi bi-gear"></i>
+          </div>
+        </li>
+        <li>
+          <div class="certificates circle">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+        </li>
+      </ul>
+      <section id="home">
+      <main id="textos" class="textos">
+          
+          <h2 class="texto1">FRANCO EZEQUIEL ROMERO</h2>
+          <h2 class="texto2">FRANCO EZEQUIEL ROMERO</h2>
+          <h2 class="texto3">FRANCO EZEQUIEL ROMERO</h2>
+          <h3 class="texto4"><i>Software developer | Architect</i></h3>
+          <p class="texto5">I will turn your ideas into projects</p>
+          <div class="parpadeo"></div>
+          <p class="cv">CV</p>
+          <button class="boton"></button>
+      </main>
+    </section>
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
     <script src="./particlesjs.js"></script>
     <script>
       // ELEMENTOS DOM
+        const HOME = document.getElementById('home');
         const texto1 = document.querySelector('.texto1');
         const texto2 = document.querySelector('.texto2');
         const texto3 = document.querySelector('.texto3');
+        const texto4 = document.querySelector('.texto4');
+        const texto5 = document.querySelector('.texto5');
+        const texto5_parpadeo = document.querySelector('.parpadeo');
         const boton = document.querySelector('.boton::before');
         const circulos = document.querySelectorAll('.circle');
         const activo = document.querySelector('.active');
         const iconos = document.querySelectorAll('i');
         const cursor = document.querySelector('.cursor');
+        const textoCV = document.querySelector('.cv');
+
+      // HOME.style.display = 'none';
+      // AL CARGARSE ANIMACION ESCRITURA
+      document.addEventListener('DOMContentLoaded', function(){
+        setTimeout(function(){
+                texto5.style.animation = 'teclear 3s steps(16)';
+                console.log('primer set')
+              }, 10)
+
+        setTimeout(function(){        
+                texto5_parpadeo.style.display = 'block';  
+        }, 3000)
+        
+        setTimeout(function(){
+              texto5_parpadeo.style.display = 'none';  
+              texto5.style.animation = 'teclear-reverse 3s 1';
+          console.log('segundo set')
+        }, 6000)
+
+        setTimeout(function(){
+          texto5_parpadeo.style.left = '40rem';  
+          texto5.style.animation = 'teclear 3s steps(16)';
+          texto5.innerText = 'I will design your project in your style'
+          console.log('tercer set')
+        }, 9000)
+
+        setTimeout(function(){        
+                texto5_parpadeo.style.display = 'block'; 
+                texto5_parpadeo.style.left = '40.3rem';  
+        }, 12000)
+      })
+      
 
       // CURSOR MOUSE
       document.addEventListener('mousemove', (e) => {
