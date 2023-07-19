@@ -26,7 +26,7 @@
     .texto1,
     .texto2,
     .texto3{
-        top: 12rem;
+        top: 8rem;
         margin: 5rem;
         position: absolute;
         font-family: 'Zen Tokyo Zoo', cursive;
@@ -57,15 +57,15 @@
     .texto4{
         position: absolute;
         color: white;
-        top: 20rem;
+        top: 17rem;
         left: 5rem;
         font-size: 2rem;
         /* font-family: 'Zen Tokyo Zoo', cursive; */
         font-family: 'Turret Road', cursive;
-        font-weight: 200;
+        font-weight: bold;
         /* transform: skew(-20deg); */
         /* Joyride Round */
-        font-weight: bold;
+        text-shadow: 0.5px 0.5px 0.5px white;
     }
     .texto4:hover{
       transition: 0.7s;
@@ -73,7 +73,7 @@
 
     .boton{
         position: absolute;
-        top: 24rem;
+        top: 25rem;
         left: 5rem;
         width: 10rem;
         height: 2.5rem;
@@ -354,6 +354,54 @@
       transform: translate(-30%, -30%);
       border-radius: 50%;
     }
+
+    .texto5{
+      position: absolute;
+      color: #eaeaea;
+      top: 20rem;
+      left: 5.2rem;
+      font-size: 2rem;
+      font-weight: 100;
+      font-family: 'Turret Road', cursive;
+      /* animation: teclear 3s steps(16) forwards, teclear-reverse 1s 8s forwards; */
+      animation: teclear 3s steps(16);
+    }
+    .texto5::after{
+      content: ' ';
+      position: absolute;
+      width: 0.15rem;
+      height: 2rem;
+      left: 31.5rem;
+      background: white;
+      animation: parpadeo 1s infinite;
+    }
+
+    @keyframes teclear {
+      from{
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+      }
+      to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+    @keyframes teclear-reverse {
+      from {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+      to {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+      }
+    } 
+
+    @keyframes parpadeo {
+      0%, 100%{
+        background: transparent;
+      }
+      50%{
+        background: white;
+      }
+    }
+    
     </style>
 </head>
 <body>
@@ -400,6 +448,7 @@
         <h2 class="texto2">FRANCO EZEQUIEL ROMERO</h2>
         <h2 class="texto3">FRANCO EZEQUIEL ROMERO</h2>
         <h3 class="texto4"><i>Software developer | Architect</i></h3>
+        <p class="texto5">I will turn your ideas into projects</p>
         <button class="boton">CV</button>
     </main>
     <div id="particles-js"></div>
