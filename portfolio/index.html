@@ -127,13 +127,30 @@
         color: rgb(255, 255, 255);
         border: 2px solid white;
         overflow: hidden;
+        animation: botonBorde 2s infinite linear;
+    }
+    @keyframes botonBorde {
+      0%, 100%{
+        /* background: transparent; */
+        box-shadow: none;
+        /* border: 2px solid white; */
+      }
+      50%{
+        /* border: 2px solid black; */
+        background: #1d496b;
+        box-shadow: 0 0 20px rgba(38, 150, 232, 0.2),
+        0 0 60px rgba(38, 150, 232, 0.2),
+        0 0 100px rgba(38, 150, 232, 0.2);
+        /* opacity: 0.2; */
+      }
     }
     .boton::before{
       content: '';
       position: absolute;
       width: 100px;
       height: 100px;
-      background: rgb(19, 97, 131);
+      background-color: #284960;
+      background-image: linear-gradient(150deg, #7e2d7d 0%, #313131 98%);
       left: -10rem;
       top: -1rem;
       width: 10rem;
@@ -164,11 +181,18 @@
       /* cursor: pointer; */
       animation: girarRapido 10s infinite linear;
     }
+    @keyframes prueba{
+      0%{ 
+        transform: rotate();
+      }
+      100%{left: 10rem;}
+
+    }
    
     #engranaje{
       position: fixed;
       width: 6rem;
-      animation: engranaje 6s infinite linear;
+      /* animation: engranaje 6s infinite linear; */
       transform: rotate(360);
       z-index: 5;
       opacity: 0.9;
@@ -310,13 +334,13 @@
                 
             }
             25%{
-                left: 4.1rem;
+                left: 4.2rem;
             }
             50%{
                 left: 4rem;
             }
             75%{
-                left: 4.3rem;
+                left: 4.4rem;
             }
             100%{
                 left: 4rem;
@@ -327,13 +351,13 @@
                 left: 4rem;
             }
             25%{
-                left: 3.8rem;
+                left: 3.7rem;
             }
             50%{
                 left: 4rem;
             }
             75%{
-                left: 3.5rem;
+                left: 3.4rem;
             }
             100%{
                 left: 4rem;
@@ -344,28 +368,28 @@
             left: 4rem;
         }
         20% {
-            left: 4.2rem;
+            left: 4.3rem;
         }
         40% {
             left: 4rem;
         }
         60% {
-            left: 4.4rem;
+            left: 4.6rem;
         }
         80% {
             left: 4rem;
         }
         100% {
-            left: 4.1rem;
+            left: 4.2rem;
     } 
         }
     @keyframes animacion4 {
             0%{
               left: 4rem
             }
-            20%{left: 3.8rem;}
+            20%{left: 3.6rem;}
             40%{left: 4rem}
-            60%{left: 3.6rem;}
+            60%{left: 3.4rem;}
             80%{left: 4rem}
             100%{left: 4rem}
         }
@@ -493,7 +517,7 @@
   <div class="cursor"></div>
 
   <ul class="menu">
-    <li>
+    <li class="content-logo">
       <img class="logo" id="casco" src="./img/casco.png" alt="">
       <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
     </li>
@@ -558,7 +582,11 @@
         const activo = document.querySelector('.active');
         const iconos = document.querySelectorAll('i');
         const cursor = document.querySelector('.cursor');
-        const logo = document.querySelector('.logo');
+        const logo = document.querySelectorAll('.logo');
+        const engranaje = document.getElementById('engranaje');
+        const casco = document.getElementById('casco');
+        
+
 
 
       // HOME.style.display = 'none';
@@ -599,55 +627,47 @@
         }, 12000)
       })
       // LOGO CLICK
-      logo.addEventListener('click', function(){
-        const engranaje = document.getElementById('engranaje');
-        const home = document.querySelector('.home')
-        const aboutMe = document.querySelector('.aboutMe')
-        const projects = document.querySelector('.projects')
-        const skills = document.querySelector('.skills')
-        const certificates = document.querySelector('.certificates')
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 0.5s infinite linear'
-        },10)
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 0.1s infinite linear'
-        },100)
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 1s infinite linear'
-        },1000)
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 1.1s infinite linear'
-        },1100)
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 1.2s infinite linear'
-        },1200)
-        setTimeout(function(){
-          engranaje.style.animation = 'engranaje 2s infinite linear'
-        },5000)
-
-      //   .home{
-      // left: 15rem;
-      // }
-      // .aboutMe{
-      //   left: 20rem;
-      // }
-      // .projects{
-      //   left: 25rem;
-      // }
-      // .skills{
-      //   left: 30rem;
-      // }
-      // .certificates{
-      //   left: 35rem;
-      // }
-        // home.style.left = '15rem'
-        // aboutMe.style.left = '20rem'
-        // projects.style.left = '25rem'
-        // skills.style.left = '30rem'
-        // certificates.style.left = '35rem'
+      // casco.addEventListener('click', function(){
+      //   casco.style.animation = 'prueba 1s 1'
+      //   engranaje.style.animation = 'prueba 1s 1'
+      // })
 
 
-      })
+      // let engranaje = document.getElementById('engranaje');
+      // let casco = document.getElementById('casco');
+      // e.style.animation = 'prueba 1s';
+
+
+    //   logo.addEventListener('click', function(){
+    //     const engranaje = document.getElementById('engranaje');
+    //     const logo = document.querySelector('.content-logo')
+
+
+    // contentLogo.style.animation = 'prueba 1s infinite';
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 0.5s infinite linear'
+    //     // },10)
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 0.1s infinite linear'
+    //     // },100)
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 1s infinite linear'
+    //     // },1000)
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 1.1s infinite linear'
+    //     // },1100)
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 1.2s infinite linear'
+    //     // },1200)
+    //     // setTimeout(function(){
+    //     //   engranaje.style.animation = 'engranaje 2s infinite linear'
+    //     // },5000)
+
+    //   })
+
+
+
+
       // BOTON CV AL PASAR MOUSE
       boton.onmouseover = () => {
         let letra = document.querySelector('.cv');
@@ -656,7 +676,7 @@
           letra.style.transition = '1s'
         },100)
         setTimeout(function(){
-          letra.style.color = 'gray';
+          letra.style.color = 'white';
         // letra.style.transition = '1s'
         },2000)
       }
@@ -664,11 +684,11 @@
       boton.addEventListener('click', function(){
         let letra = document.querySelector('.cv');
         setTimeout(function(){
-          letra.innerText = 'loading..'
+          letra.innerText = 'Loading..'
           letra.style.transition = '1s';
         }, 10);
         setTimeout(function(){
-          letra.innerText = 'done';
+          letra.innerText = 'Done!';
           letra.style.transition = '1s';
         },2000);
         setTimeout(function(){
@@ -733,6 +753,19 @@
     elemento.classList.remove('circle');
     elemento.classList.add('active');
 
+  
+    // ANIMACION TRANSICION
+    setTimeout(function(){
+      casco.style.animation = 'prueba 1s 1'
+      engranaje.style.animation = 'prueba 1s 1'
+    },10)
+    setTimeout(function(){
+      casco.style.animation = 'girarRapido 10s infinite linear';
+      engranaje.style.animation = 'engranaje 6s infinite linear';
+    },1000)
+
+
+
     setTimeout(function(){
       elemento.style.animation = 'girarRapido 5s 1';
     },10)
@@ -746,6 +779,9 @@
       if (otroIndex !== index) {
         otroElemento.classList.remove('active');
         otroElemento.classList.add('circle');
+
+
+
       }
     });
   });
