@@ -10,23 +10,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        *{
-            margin: 0;
-        }
-        #particles-js{
-            background-color: #000000;
-            background-image: linear-gradient(-180deg, #000000 0%, #3b3e42 94%);
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            z-index: -1;
-        }
+      /* CONFIG GLOBAL */
+    *{
+        margin: 0;
+    }
+    #particles-js{
+        background-color: #000000;
+        background-image: linear-gradient(-180deg, #000000 0%, #3b3e42 94%);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: -1;
+    }
+    /* CURSOR CIRCULO */
+      .cursor {
+      z-index: 999; 
+      position: fixed;
+      background: #2696E8;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 20px #2696E8, 0 0 60px #2696E8, 0 0 100px #2696E8;
+      animation: colors 5s infinite;
+    }
+
+    .cursor:before{
+      content: '';
+      position: absolute;
+      background: #2696E8;
+      width: 50px;
+      height: 50px;
+      opacity: 0.2;
+      transform: translate(-30%, -30%);
+      border-radius: 50%;
+    }
+/* FIN CONFIG GLOBAL */
+/*  SECTION HOME */
+  
 
     .texto1,
     .texto2,
     .texto3{
         top: 8rem;
+        left: 4rem;
         margin: 5rem;
         position: absolute;
         font-family: 'Zen Tokyo Zoo', cursive;
@@ -42,9 +70,9 @@
         color: rgb(25, 199, 202);
         opacity: 0.5;
         z-index: 3; 
-        animation: animacion2 0.8s 3;
-        animation: animacion4 6s infinite linear;
-        left: 0.1rem;
+        /* animation: animacion2 0.8s 3;  */
+        animation: animacion4 6s infinite linear; 
+
     }
     .texto3{
         color: rgb(211, 25, 183);
@@ -52,7 +80,6 @@
         animation: animacion1 1s 3;
         animation: animacion3 6s infinite linear;
         z-index: 2;
-        left: 0.1rem;
     }
     .texto4{
         position: absolute;
@@ -71,6 +98,17 @@
       transition: 0.7s;
     }
 
+    .texto5{
+      position: absolute;
+      color: #eaeaea;
+      top: 20rem;
+      left: 5.2rem;
+      font-size: 2rem;
+      font-weight: 100;
+      font-family: 'Turret Road', cursive;
+
+    }
+
     .boton{
         display: flex;
         align-items: center;
@@ -81,7 +119,9 @@
         width: 10rem;
         height: 2.5rem;
         transform: skew(-20deg);
-        border-radius: 0.2rem;
+        border-radius: 1rem;
+        border-top-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
         cursor: pointer;
         background: none;
         font-size: 1.5rem;
@@ -105,6 +145,15 @@
       transform: translateX(100%);
       transition: 1s;
     }
+    /* TEXTO CV dentro de BOTON*/
+      .cv{
+      color: white;
+      font-size: 1.5rem;
+      font-family: sans-serif;
+      transform: skewX(-5deg);
+      z-index: 9;
+      font-family:  'Courier New', Courier, monospace;
+    }
 
 
  
@@ -112,6 +161,7 @@
     /* /////  LOGO /////// */
     .logo{
       top: 0.4rem;
+      left: 0.4rem;
       /* cursor: pointer; */
       animation: girarRapido 10s infinite linear;
     }
@@ -130,11 +180,22 @@
       z-index: 6;
     }
 
+    /* CONTENEDOR DE LOS CIRCULOS DEL MENU */
+    .menu{
+      position: fixed;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
     ul {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
 
     .active{
@@ -214,69 +275,68 @@
        /* ////// ANIMACION //////*/
     @keyframes animacion1 {
             0%{
-                left: 0.1rem;
+                left: 4rem;
                 
             }
             25%{
-                left: 0.5rem;
+                left: 4.1rem;
             }
             50%{
-                left: 0.1rem;
+                left: 4rem;
             }
             75%{
-                left: 0.2rem;
+                left: 4.3rem;
             }
             100%{
-                left: 0.1rem;
+                left: 4rem;
             }
         }
     @keyframes animacion2 {
             0%{
-                left: 0.1rem;
-                
+                left: 4rem;
             }
             25%{
-                left: -0.5rem;
+                left: 3.8rem;
             }
             50%{
-                left: 0.1rem;
+                left: 4rem;
             }
             75%{
-                left: -0.2rem;
+                left: 3.5rem;
             }
             100%{
-                left: 0.1rem;
+                left: 4rem;
             }
         }
     @keyframes animacion3 {
           0% {
-            left: 0.1rem;
+            left: 4rem;
         }
         20% {
-            left: 0.5rem;
+            left: 4.2rem;
         }
         40% {
-            left: 0.1rem;
+            left: 4rem;
         }
         60% {
-            left: 0.2rem;
+            left: 4.4rem;
         }
         80% {
-            left: 0.1rem;
+            left: 4rem;
         }
         100% {
-            left: 0.1rem;
+            left: 4.1rem;
     } 
         }
     @keyframes animacion4 {
             0%{
-              left: 0.1rem
+              left: 4rem
             }
-            20%{left: -0.5rem;}
-            40%{left: 0.1rem}
-            60%{left: -0.2;}
-            80%{left: 0.1rem}
-            100%{left: 0.1rem}
+            20%{left: 3.8rem;}
+            40%{left: 4rem}
+            60%{left: 3.6rem;}
+            80%{left: 4rem}
+            100%{left: 4rem}
         }
     @keyframes botonProyectos{
         0%{
@@ -327,18 +387,6 @@
         transform: scale(1.1);
     }
     }
-
-    .cursor {
-      z-index: 999;
-      position: fixed;
-      background: #2696E8;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      pointer-events: none;
-      box-shadow: 0 0 20px #2696E8, 0 0 60px #2696E8, 0 0 100px #2696E8;
-      animation: colors 5s infinite;
-    }
     @keyframes colors{
       0%{
         filter: hue-rotate(0deg);
@@ -347,48 +395,6 @@
         filter: hue-rotate(360deg);
       }
     }
-    .cursor:before{
-      content: '';
-      position: absolute;
-      background: #2696E8;
-      width: 50px;
-      height: 50px;
-      opacity: 0.2;
-      transform: translate(-30%, -30%);
-      border-radius: 50%;
-    }
-
-    .texto5{
-      position: absolute;
-      color: #eaeaea;
-      top: 20rem;
-      left: 5.2rem;
-      font-size: 2rem;
-      font-weight: 100;
-      font-family: 'Turret Road', cursive;
-      /* animation: teclear 3s steps(16) forwards, teclear-reverse 1s 8s forwards; */
-      /* animation: teclear 3s steps(16); */
-    }
-    /* .texto5::after{
-      content: ' ';
-      position: absolute;
-      width: 0.15rem;
-      height: 2rem;
-      left: 31.5rem;
-      background: white;
-      animation: parpadeo 1s infinite;
-    } */
-    .parpadeo{
-      display: none;
-      position: absolute;
-      width: 0.15rem;
-      height: 2rem;
-      left: 36.5rem;
-      top: 20rem;
-      background: white;
-      animation: parpadeo 1s infinite;
-    }
-
     @keyframes teclear {
       from{
         clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
@@ -406,34 +412,58 @@
       }
     } 
 
-    @keyframes parpadeo {
-      0%, 100%{
-        background: transparent;
-      }
-      50%{
-        background: white;
-      }
-    }
-    
 
-    .cv{
-      color: white;
-      font-size: 1.5rem;
-      font-family: sans-serif;
-      transform: skewX(-5deg);
-      z-index: 9;
+    /* RESPONSIVO */
+    @media (max-width: 1000px){
+      .texto1,.texto2,.texto3{
+        font-size: 2.5rem;
+
+      }
+      .texto4{
+        font-size: 1.5rem;
+        top: 16rem;
+      }
+      .texto5{
+        font-size: 1.2rem;
+        top: 18rem;
+      }
+      .boton{
+        top: 21rem;
+      }
+      .home,
+      .aboutMe,
+      .projects,
+      .skills,
+      .certificates{
+        transition: 1s;
+        left: 1.5rem;
+      }
+      .home{
+      top: 10rem;
+      }
+      .aboutMe{
+        top: 15rem;
+      }
+      .projects{
+        top: 20rem;
+      }
+      .skills{
+        top: 25rem;
+      }
+      .certificates{
+        top: 30rem;
+      }
     }
-    
     </style>
 </head>
 <body>
   <div class="cursor"></div>
 
+  <ul class="menu">
     <li>
       <img class="logo" id="casco" src="./img/casco.png" alt="">
       <img class="logo" id="engranaje" src="./img/engranaje.png" alt="">
     </li>
-      <ul>
         <li>
           <div class="home circle">
             <i class="bi bi-house-door"></i>
@@ -491,10 +521,22 @@
         const activo = document.querySelector('.active');
         const iconos = document.querySelectorAll('i');
         const cursor = document.querySelector('.cursor');
+        const logo = document.querySelector('.logo');
+
 
       // HOME.style.display = 'none';
       // AL CARGARSE ANIMACION ESCRITURA
       document.addEventListener('DOMContentLoaded', function(){
+        let agregarBorde = true;
+        setInterval(function(){
+          if(agregarBorde){
+            texto5.style.borderRight = '0.5rem solid white';
+          }
+          else{
+            texto5.style.borderRight = 'none';
+          }
+          agregarBorde = !agregarBorde;
+        },500)
         setTimeout(function(){
                 texto5.style.animation = 'teclear 3s steps(16)';
               }, 10)
@@ -519,7 +561,56 @@
                 texto5_parpadeo.style.left = '40.3rem';  
         }, 12000)
       })
-      
+      // LOGO CLICK
+      logo.addEventListener('click', function(){
+        const engranaje = document.getElementById('engranaje');
+        const home = document.querySelector('.home')
+        const aboutMe = document.querySelector('.aboutMe')
+        const projects = document.querySelector('.projects')
+        const skills = document.querySelector('.skills')
+        const certificates = document.querySelector('.certificates')
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 0.5s infinite linear'
+        },10)
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 0.1s infinite linear'
+        },100)
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 1s infinite linear'
+        },1000)
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 1.1s infinite linear'
+        },1100)
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 1.2s infinite linear'
+        },1200)
+        setTimeout(function(){
+          engranaje.style.animation = 'engranaje 2s infinite linear'
+        },5000)
+
+      //   .home{
+      // left: 15rem;
+      // }
+      // .aboutMe{
+      //   left: 20rem;
+      // }
+      // .projects{
+      //   left: 25rem;
+      // }
+      // .skills{
+      //   left: 30rem;
+      // }
+      // .certificates{
+      //   left: 35rem;
+      // }
+        // home.style.left = '15rem'
+        // aboutMe.style.left = '20rem'
+        // projects.style.left = '25rem'
+        // skills.style.left = '30rem'
+        // certificates.style.left = '35rem'
+
+
+      })
       // BOTON CV AL PASAR MOUSE
       boton.onmouseover = () => {
         let letra = document.querySelector('.cv');
@@ -586,6 +677,7 @@
     const currentClass = icon.className; // Obtenemos las clases existentes del elemento i
     const newClass = currentClass + '-fill'; // Agregamos el sufijo '-fill'
     icon.className = newClass; // Asignamos la nueva clase al elemento i
+    circle.style.transition = '1s';
   });
   
   circle.addEventListener('mouseout', () => {
@@ -603,7 +695,13 @@
   elemento.addEventListener('click', function() {
     elemento.classList.remove('circle');
     elemento.classList.add('active');
-    
+
+    setTimeout(function(){
+      elemento.style.animation = 'girarRapido 5s 1';
+    },10)
+    setTimeout(function(){
+      elemento.style.animation = 'none';
+    },1000)
 
     
     // Recorre los demás elementos para eliminar la clase 'active'.
