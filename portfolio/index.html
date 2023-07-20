@@ -47,9 +47,7 @@
       border-radius: 50%;
     }
 /* FIN CONFIG GLOBAL */
-/*  SECTION HOME */
-  
-
+/*///////// SECTION HOME ////////// */
     .texto1,
     .texto2,
     .texto3{
@@ -85,7 +83,7 @@
         position: absolute;
         color: white;
         top: 17rem;
-        left: 5rem;
+        left: 8.8rem;
         font-size: 2rem;
         /* font-family: 'Zen Tokyo Zoo', cursive; */
         font-family: 'Turret Road', cursive;
@@ -102,7 +100,7 @@
       position: absolute;
       color: #eaeaea;
       top: 20rem;
-      left: 5.2rem;
+      left: 8.9rem;
       font-size: 2rem;
       font-weight: 100;
       font-family: 'Turret Road', cursive;
@@ -115,7 +113,7 @@
         justify-content: center;
         position: absolute;
         top: 25rem;
-        left: 5rem;
+        left: 8.8rem;
         width: 10rem;
         height: 2.5rem;
         transform: skew(-20deg);
@@ -135,7 +133,7 @@
       position: absolute;
       width: 100px;
       height: 100px;
-      background: white;
+      background: rgb(19, 97, 131);
       left: -10rem;
       top: -1rem;
       width: 10rem;
@@ -148,11 +146,12 @@
     /* TEXTO CV dentro de BOTON*/
       .cv{
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-family: sans-serif;
       transform: skewX(-5deg);
       z-index: 9;
       font-family:  'Courier New', Courier, monospace;
+      font-weight: bold;
     }
 
 
@@ -271,8 +270,40 @@
       cursor: pointer;
       z-index: 9;
     }
+    /* /////// FOOTER //////// */
+    .footer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .copyright{
+      color: white;
+      position: fixed;
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      bottom: 1rem;
+    }
+    .copyright::after{
+      content: '';
+      position: absolute;
+      height: 1px;
+      left: 10rem;
+      width: 200rem;
+      bottom: 0.5rem;
+      background: white;
+    }
+    .copyright::before{
+      content: '';
+      position: absolute;
+      height: 1px;
+      right: 10rem;
+      width: 200rem;
+      bottom: 0.5rem;
+      background: white;
+    }
 
-       /* ////// ANIMACION //////*/
+       /* ////// ANIMACIONES //////*/
     @keyframes animacion1 {
             0%{
                 left: 4rem;
@@ -369,7 +400,7 @@
     @keyframes btnDetras {
       0%{
         transform: scale(0.4);
-        opacity: 0.5;
+        opacity: 0.9;
         background: #0b0b0b;
       }
 
@@ -454,6 +485,8 @@
         top: 30rem;
       }
     }
+
+ 
     </style>
 </head>
 <body>
@@ -490,6 +523,10 @@
           </div>
         </li>
       </ul>
+      <div class="footer">
+        <p class="copyright">© 2023 Franco E. Romero</p>
+      </div>
+      <!-- HOME -->
       <section id="home">
       <main id="textos" class="textos">
           
@@ -500,7 +537,7 @@
           <p class="texto5">I will turn your ideas into projects</p>
           <div class="parpadeo"></div>
           <button class="boton">
-            <p class="cv">CV</p>
+            <p class="cv">Download CV</p>
           </button>
       </main>
     </section>
@@ -635,7 +672,7 @@
           letra.style.transition = '1s';
         },2000);
         setTimeout(function(){
-          letra.innerText = 'CV';
+          letra.innerText = 'Download CV';
           letra.style.transition = '1s';
           letra.style.color = 'white'
         },3000)
