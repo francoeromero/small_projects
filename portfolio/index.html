@@ -215,10 +215,6 @@
       }
     }
 
-
-
-
-
     @keyframes prueba{
       0%,100% {
         transform: translate(0, 0); /* Inicio en la posición inicial (0, 0) */
@@ -509,9 +505,12 @@
 
     /* RESPONSIVO */
     @media (max-width: 1000px){
+      .content-transicion{
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
       .texto1,.texto2,.texto3{
         font-size: 2.5rem;
-
       }
       .texto4{
         font-size: 1.5rem;
@@ -522,7 +521,7 @@
         top: 18rem;
       }
       .boton{
-        top: 21rem;
+        top: 20rem;
       }
       .home,
       .aboutMe,
@@ -548,6 +547,48 @@
         top: 30rem;
       }
     }
+    @media (max-width: 800px){
+      .content-transicion{
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+      .texto1,.texto2,.texto3{
+        font-size: 1.8rem;
+      }
+      .texto4{
+        font-size: 1.2rem;
+        top: 15rem;
+      }
+      .texto5{
+        font-size: 1.2rem;
+        top: 17rem;
+      }
+    }
+
+    @media (max-width: 600px){
+      .content-transicion{
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+      .texto1,.texto2,.texto3{
+        font-size: 2rem;
+      }
+
+      .texto4{
+        font-size: 1.2rem;
+        top: 20rem;
+      }
+      .texto5{
+        font-size: 1.2rem;
+        top: 23rem;
+      }
+      .boton{
+        top: 28rem;
+      }
+    }
+
+
+
 
     .content-logoAnimado{
       display: none;
