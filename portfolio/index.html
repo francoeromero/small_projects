@@ -180,13 +180,52 @@
       left: 0.4rem;
       /* cursor: pointer; */
       animation: girarRapido 10s infinite linear;
-    }
-    @keyframes prueba{
-      0%{ 
-        transform: rotate();
-      }
-      100%{left: 10rem;}
 
+    }
+
+    .content-transicion{
+      display: none;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-end;
+      height: 100vh;
+      position: absolute;
+    }
+    .transicion{
+      background-color: #090909;
+      background-image: linear-gradient(-300deg, #172d54 0%, #5e1b5e 94%);
+      border-top: 5rem solid rgba(38, 150, 232, 0.1);
+      border-right: 5rem solid rgba(223, 44, 217, 0.1);
+      border-radius: 50% 50% 50% 50% / 40% 40% 50% 80%;
+      transform: skew(10deg, 30deg), rotate(-350deg);
+      z-index: 9;
+      /* animation: transicion 2s ease-in-out; */
+    }
+
+    @keyframes transicion{
+      0%,100%{
+        width: 1rem;
+        height: 1rem;
+        margin: -100px;
+      }
+      50%{
+        width: 200vw;
+        height: 200vh;
+        margin: -300px;
+      }
+    }
+
+
+
+
+
+    @keyframes prueba{
+      0%,100% {
+        transform: translate(0, 0); /* Inicio en la posición inicial (0, 0) */
+      }
+      50% {
+        transform: translate(32rem, 15rem); /* Final en la posición diagonal (20rem, 20rem) */
+      }
     }
    
     #engranaje{
@@ -510,12 +549,76 @@
       }
     }
 
- 
+    .content-logoAnimado{
+      display: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: absolute;
+    }
+    .cascoAnimado,
+    .engranajeAnimado{
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+    }
+    .cascoAnimado{
+      animation: cascoAnimado 2s 1;
+      z-index: 11;
+    }
+    .engranajeAnimado{
+      animation: engranajeAnimado 2s 1;
+      z-index: 10;
+    }
+    @keyframes cascoAnimado {
+      0%{
+        bottom: 16.2rem;
+        transform: rotate(360deg);
+      }
+      50%{
+        bottom: 20rem;
+        transform: rotate(-360deg);
+      }
+      100%{
+        bottom: 16.2rem;
+        transform: rotate(-360deg);
+      }
+    }
+    @keyframes engranajeAnimado{
+      0%{
+        transform: rotate(360deg);
+        bottom: 16.2rem;
+      }
+      10%{
+        transform: rotate(-360deg);
+        bottom: 17rem;
+      }
+      20%{
+        transform: rotate(360deg);
+      }
+      50%{
+        transform: rotate(-360deg);
+        bottom: 16.2rem;
+      }
+      100%{
+        transform: rotate(-300deg);
+        bottom: 16.2rem;
+      }
+    }
+
     </style>
 </head>
 <body>
   <div class="cursor"></div>
-
+  <div class="content-logoAnimado">
+    <!-- <div class="logoAnimado"></div> -->
+    <img class="cascoAnimado" src="./img/casco.png" alt="">
+    <img class="engranajeAnimado" src="./img/engranaje.png" alt="">
+  </div>
+    <div class="content-transicion">
+    <div class="transicion"></div>
+  </div>
   <ul class="menu">
     <li class="content-logo">
       <img class="logo" id="casco" src="./img/casco.png" alt="">
@@ -585,6 +688,11 @@
         const logo = document.querySelectorAll('.logo');
         const engranaje = document.getElementById('engranaje');
         const casco = document.getElementById('casco');
+        const transicion = document.querySelector('.transicion')
+        const contentTransicion = document.querySelector('.content-transicion') 
+        const contentLogoAnimado = document.querySelector('.content-logoAnimado');
+        const cascoAnimado = document.querySelector('.cascoAnimado');
+        const engranajeAnimado = document.querySelector('.engranajeAnimado');
         
 
 
@@ -756,13 +864,21 @@
   
     // ANIMACION TRANSICION
     setTimeout(function(){
-      casco.style.animation = 'prueba 1s 1'
-      engranaje.style.animation = 'prueba 1s 1'
+      contentTransicion.style.display = 'flex';
+      contentLogoAnimado.style.display = 'flex';
+      transicion.style.animation = 'transicion 1.6s ease-in-out';
+      cascoAnimado.style.animation = 'cascoAnimado 2s 1';
+      engranajeAnimado.style.animation = 'engranajeAnimado 2s 1';
     },10)
     setTimeout(function(){
-      casco.style.animation = 'girarRapido 10s infinite linear';
+      transicion.style.animation = 'none';
+      contentTransicion.style.display = 'none';
+      contentLogoAnimado.style.display = 'none';
+      cascoAnimado.style.animation = 'none';
+      engranajeAnimado.style.animation = 'none';
       engranaje.style.animation = 'engranaje 6s infinite linear';
-    },1000)
+
+    },1600)
 
 
 
